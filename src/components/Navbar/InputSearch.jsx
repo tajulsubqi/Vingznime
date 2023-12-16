@@ -11,10 +11,21 @@ const InputSearch = () => {
   const handleSearch = (event) => {
     event.preventDefault()
 
-    const keyword = searchHref.current.value
-    router.push(`/search/${keyword}`)
+    // inputan search tidak bisa running meskipun di clik sebelum di isi
+    const keyword = searchHref.current.value.trim()
+    if (keyword) {
+      router.push(`/search/${keyword}`)
+    } else {
+      alert("silahkan search anime terlebih dahulu!")
+    }
 
     // alert(searchHref.current.value)
+  }
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch(e)
+    }
   }
 
   return (
@@ -24,6 +35,7 @@ const InputSearch = () => {
           type="text"
           placeholder="search anime ..."
           ref={searchHref}
+          onKeyDown={handleKeyPress}
           className="rounded-md w-full sm:w-[250px] px-2 py-2 mt-2 sm:mt-0 text-sm "
         />
         <button
