@@ -5,15 +5,17 @@ const Page = async ({ params }) => {
   // const keyword = params.keyword
   const { keyword } = params
 
+  const decodedKeyword = decodeURI(keyword)
+
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${keyword}`,
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${decodedKeyword}`,
   )
   const searchAnime = await response.json()
 
   return (
     <>
       <section>
-        <Header title={`pencarian anime ${keyword}`} />
+        <Header title={`pencarian anime ${decodedKeyword}`} />
         <AnimeList api={searchAnime} />
       </section>
     </>

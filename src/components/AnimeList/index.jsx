@@ -4,7 +4,7 @@ import Link from "next/link"
 const AnimeList = ({ api }) => {
   return (
     <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 sm:grid-cols-3 px-4">
-      {api.data.map((anime, index) => (
+      {api.data?.map((anime, index) => (
         <Link
           key={index}
           href={`/${anime.mal_id}`}
