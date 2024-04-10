@@ -4,7 +4,7 @@ const Pagination = ({ page, lastPage, setPage }) => {
   const scrollTop = () => {
     window.scrollTo({
       top: 0,
-      // behavior: "smooth",
+      behavior: "smooth",
     })
   }
 
@@ -21,17 +21,21 @@ const Pagination = ({ page, lastPage, setPage }) => {
 
   return (
     <div className="flex justify-center items-center py-4 px-2 gap-4 text-primary text-xl">
-      <button onClick={handlePrevPage} className="transition hover:text-accent">
-        Prev
-      </button>
+      {page <= 1 ? null : (
+        <button onClick={handlePrevPage} className="transition hover:text-accent">
+          Prev
+        </button>
+      )}
 
       <p>
         {page} 0f {lastPage}
       </p>
 
-      <button onClick={handleNextPage} className="transition hover:text-accent">
-        Next
-      </button>
+      {page >= lastPage ? null : (
+        <button onClick={handleNextPage} className="transition hover:text-accent">
+          Next
+        </button>
+      )}
     </div>
   )
 }
