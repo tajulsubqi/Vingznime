@@ -15,8 +15,6 @@ const InputSearch = () => {
     const keyword = searchHref.current.value.trim()
     if (keyword) {
       router.push(`/search/${keyword}`)
-    } else {
-      alert("silahkan search anime terlebih dahulu!")
     }
 
     // alert(searchHref.current.value)
