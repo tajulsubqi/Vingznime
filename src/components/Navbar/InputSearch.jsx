@@ -11,13 +11,10 @@ const InputSearch = () => {
   const handleSearch = (event) => {
     event.preventDefault()
 
-    // inputan search tidak bisa running meskipun di clik sebelum di isi
     const keyword = searchHref.current.value.trim()
     if (keyword) {
       router.push(`/search/${keyword}`)
     }
-
-    // alert(searchHref.current.value)
   }
 
   const handleKeyPress = (e) => {

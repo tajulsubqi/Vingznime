@@ -16,7 +16,7 @@ const Navbar = () => {
 
       <InputSearch />
 
-    <UserActionButton/>
+      <UserActionButton />
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import { authUserSession } from "@/lib/auth-libs"
 import Link from "next/link"
-import React from "react"
 
 const UserActionButton = async () => {
   const user = await authUserSession()
@@ -11,7 +10,7 @@ const UserActionButton = async () => {
     <div className="flex gap-4 mt-4 md:mt-0 items-center justify-between">
       {user ? (
         <Link
-          href="users/dashboard"
+          href="/users/dashboard"
           className="font-semibold text-xl hover:text-slate-600 font-sans text-black duration-300 transition"
         >
           Dashboard
