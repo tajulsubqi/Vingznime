@@ -1,10 +1,13 @@
 "use client"
+import CollectionButton from "@/components/Utilities/CollectionButton"
 import VideoPlayer from "@/components/Utilities/VideoPalyer"
 import { getAnimeResponse } from "@/lib/api-libs"
+import { authUserSession } from "@/lib/auth-libs"
 import Image from "next/image"
 
 const Page = async ({ params: { id } }) => {
   const anime = await getAnimeResponse(`anime/${id}`)
+  const user = await authUserSession()
 
   return (
     <>
@@ -12,6 +15,8 @@ const Page = async ({ params: { id } }) => {
         <h3 className="text-2xl font-semibold text-accent">
           {anime.data?.title} - {anime.data?.year}
         </h3>
+        {/* <CollectionButton anime_mal_id={id} user_email={user?.email} /> */}
+        <CollectionButton />
       </div>
 
       <div className="pt-4 mx-4 flex gap-2 text-primary overflow-x-auto">

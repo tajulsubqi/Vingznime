@@ -11,7 +11,7 @@ const UserActionButton = async () => {
       {user ? (
         <Link
           href="/users/dashboard"
-          className="font-semibold text-xl hover:text-slate-600 font-sans text-black duration-300 transition"
+          className="font-semibold text-xl hover:text-slate-400 font-sans text-white duration-200 transition"
         >
           Dashboard
         </Link>
@@ -19,7 +19,7 @@ const UserActionButton = async () => {
 
       <Link
         href={actionURL}
-        className="font-semibold font-sans text-accent bg-dark hover:bg-slate-500 duration-300 transition px-12 py-2 rounded"
+        className="font-bold font-sans text-dark bg-primary hover:bg-slate-50 duration-300 transition px-6 py-2 rounded-full"
       >
         {actionLabel}
       </Link>

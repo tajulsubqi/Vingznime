@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar"
 const poppin = Poppins({ subsets: ["latin"], weight: ["300"] })
 
 export const metadata = {
-  title: "Anime | List",
+  title: "Vingz | Otaku",
   description: "Website Anime Indonesia",
 }
 
