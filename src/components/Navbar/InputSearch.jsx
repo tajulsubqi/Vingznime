@@ -11,15 +11,10 @@ const InputSearch = () => {
   const handleSearch = (event) => {
     event.preventDefault()
 
-    // inputan search tidak bisa running meskipun di clik sebelum di isi
     const keyword = searchHref.current.value.trim()
     if (keyword) {
       router.push(`/search/${keyword}`)
-    } else {
-      alert("silahkan search anime terlebih dahulu!")
     }
-
-    // alert(searchHref.current.value)
   }
 
   const handleKeyPress = (e) => {
@@ -36,13 +31,13 @@ const InputSearch = () => {
           placeholder="search anime ..."
           ref={searchHref}
           onKeyDown={handleKeyPress}
-          className="rounded-md w-full sm:w-[250px] px-2 py-2 mt-2 sm:mt-0 text-sm "
+          className="rounded-full w-full sm:w-[450px] px-5 py-3 mt-2 sm:mt-0 text-md "
         />
         <button
           onClick={handleSearch}
-          className="absolute top-3.5 end-2 sm:top-1.5 sm:end-2"
+          className="absolute top-3.5 end-2 sm:top-3 sm:end-3"
         >
-          <MagnifyingGlass size={24} />
+          <MagnifyingGlass size={24} weight="bold" />
         </button>
       </div>
     </>

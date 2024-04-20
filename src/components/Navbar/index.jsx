@@ -1,16 +1,23 @@
 import Link from "next/link"
 import InputSearch from "./InputSearch"
+import UserActionButton from "./UserActionButton"
 
 const Navbar = () => {
   return (
-    <div className="bg-accent py-4 px-10 sm:flex sm:justify-between items-center">
-      <Link
-        href={"/"}
-        className="text-2xl font-bold text-dark uppercase hover:text-indigo-700 transition  duration-300"
-      >
-        AnimeList
+    <div className="bg-dark py-6 px-10 sm:flex sm:justify-between items-center sticky top-0 z-50 border-b border-slate-900">
+      <Link href={"/"}>
+        <h1
+          className="text-4xl text-white hover:text-slate-500 transition duration-200 font-sans font-bold"
+          style={{ textShadow: "1px 1px 1px black" }}
+        >
+          Vingz_Otaku
+        </h1>
       </Link>
-      <InputSearch />
+
+      <div className="md:flex gap-4">
+        <InputSearch />
+        <UserActionButton />
+      </div>
     </div>
   )
 }
