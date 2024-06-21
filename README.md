@@ -1,6 +1,6 @@
-# Raplinime
+# Vingznime
 
-Raplinime is a catalog website for anime fans, allowing users to keep track of their favorite series.
+Vingznime is a catalog website for anime fans, allowing users to keep track of their favorite series.
 
 ## Tech Stack
 
@@ -35,7 +35,7 @@ To run this project, you will need to add the following environment variables to
 1. Clone the project
 
 ```bash
-  git clone https://github.com/rafliferdian/raplinime.git
+  git clone https://github.com/tajulsubqi/Vingznime.git
 ```
 
 2. add an .env file with the following environment variables
