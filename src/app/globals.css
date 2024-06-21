@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+**::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+:root {
+    height: 100%;
+}
+
+img {
+    transition: .3s ease all;
+    -webkit-transition: .3s ease all;
+    -moz-transition: .3s ease all;
+    -ms-transition: .3s ease all;
+    -o-transition: .3s ease all;
+}
+
+.loading {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: conic-gradient(#0000 10%, #999999);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+    mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+    animation: s3 0.5s infinite linear;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-Black-8;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-Red-60/70;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-Red-60;
+}
+
+
+@keyframes s3 {
+    to {
+        transform: rotate(1turn)
+    }
+}
