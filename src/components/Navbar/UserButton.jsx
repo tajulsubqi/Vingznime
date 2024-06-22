@@ -1,21 +1,22 @@
-"use client";
+"use client"
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useCurrentUser } from "@/hooks/use-current-user";
-import { logout } from "@/src/actions/logout";
-import avatar from "@/public/images/avatar.svg";
+import { useCallback, useEffect, useRef, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { useCurrentUser } from "@/hooks/use-current-user"
+import { logout } from "@/src/actions/logout"
+import avatar from "@/public/images/avatar.svg"
+import { RiLogoutCircleLine } from "react-icons/ri"
 
 const UserButton = () => {
-  const user = useCurrentUser();
+  const user = useCurrentUser()
 
-  const dropdownRef = useRef(null);
-  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const dropdownRef = useRef(null)
+  const [isDropdownVisible, setDropdownVisible] = useState(false)
 
   const onToggleMenu = useCallback(() => {
-    setDropdownVisible((prev) => !prev);
-  }, []);
+    setDropdownVisible((prev) => !prev)
+  }, [])
 
   useEffect(() => {
     const onClickOutside = (event) => {
@@ -24,18 +25,18 @@ const UserButton = () => {
         !dropdownRef.current.contains(event.target) &&
         isDropdownVisible
       ) {
-        setDropdownVisible(false);
+        setDropdownVisible(false)
       }
 
-      return;
-    };
+      return
+    }
 
-    document.addEventListener("click", onClickOutside);
+    document.addEventListener("click", onClickOutside)
 
     return () => {
-      document.removeEventListener("click", onClickOutside);
-    };
-  }, [isDropdownVisible]);
+      document.removeEventListener("click", onClickOutside)
+    }
+  }, [isDropdownVisible])
 
   return (
     <div className="relative inline-block text-left text-Absolute-White">
@@ -69,14 +70,15 @@ const UserButton = () => {
 
           <button
             onClick={() => logout()}
-            className="text-Grey-60 block w-full rounded-b-lg px-4 py-2 text-start  font-medium transition-colors hover:text-Red-60 hover:bg-Grey-60/20"
+            className="text-Red-60 flex items-center gap-x-1 w-full rounded-b-lg px-4 py-2 text-start  font-medium transition-colors hover:text-Red-60 hover:bg-Grey-60/20"
           >
+            <RiLogoutCircleLine />
             Sign out
           </button>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default UserButton;
+export default UserButton

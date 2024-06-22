@@ -1,40 +1,40 @@
-import Image from "next/image";
-import Link from "next/link";
-import { Star, ArrowLeft } from "@phosphor-icons/react/dist/ssr";
-import { getAnimeResponse, getNestedAnimeResponse } from "@/src/libs/api-libs";
-import { db } from "@/src/libs/prisma";
-import { currentUser } from "@/src/libs/auth";
-import { formatScore, formatDate } from "@/src/libs/utils";
-import Header from "@/src/components/AnimeList/Header";
-import AnimeList from "@/src/components/AnimeList";
-import Character from "@/src/app/(public)/anime/[id]/Character";
-import CollectionButton from "@/src/components/AnimeList/Collection/CollectionButton";
-import CommentBox from "@/src/components/AnimeList/Comment/comment-box";
-import CommentForm from "@/src/components/AnimeList/Comment/comment-form";
-import Navbar from "@/src/components/Navbar";
-import MyCommentBox from "@/src/components/AnimeList/Comment/my-comment-box";
+import Image from "next/image"
+import Link from "next/link"
+import { Star, ArrowLeft } from "@phosphor-icons/react/dist/ssr"
+import { getAnimeResponse, getNestedAnimeResponse } from "@/src/libs/api-libs"
+import { db } from "@/src/libs/prisma"
+import { currentUser } from "@/src/libs/auth"
+import { formatScore, formatDate } from "@/src/libs/utils"
+import Header from "@/src/components/AnimeList/Header"
+import AnimeList from "@/src/components/AnimeList"
+import Character from "@/src/app/(public)/anime/[id]/Character"
+import CollectionButton from "@/src/components/AnimeList/Collection/CollectionButton"
+import CommentBox from "@/src/components/AnimeList/Comment/comment-box"
+import CommentForm from "@/src/components/AnimeList/Comment/comment-form"
+import Navbar from "@/src/components/Navbar"
+import MyCommentBox from "@/src/components/AnimeList/Comment/my-comment-box"
 
 const Page = async ({ params: { id } }) => {
   //user session & get data from collection
-  const user = await currentUser();
+  const user = await currentUser()
 
   const collection = await db.collection.findFirst({
     where: { user_email: user?.email, anime_mal_id: id },
-  });
+  })
 
   const myComment = await db.comment.findFirst({
     include: {
       user: true,
     },
     where: { user_email: user?.email, anime_mal_id: id },
-  });
+  })
 
   const allComment = await db.comment.findMany({
     where: { anime_mal_id: id },
-  });
+  })
 
   //get anime data
-  const anime = await getAnimeResponse(`anime/${id}/full`);
+  const anime = await getAnimeResponse(`anime/${id}/full`)
 
   //validate anime data
   if (anime.status == 404) {
@@ -43,9 +43,7 @@ const Page = async ({ params: { id } }) => {
         <div className="bg-Black-10 flex flex-col items-center justify-center text-center px-4 md:px-8 lg:px-24 py-8 rounded-lg md:rounded-3xl text-Red-60 gap-3">
           <p className="text-6xl md:text-7xl lg:text-9xl font-bold">404</p>
 
-          <p className="text-2xl md:text-3xl lg:text-5xl font-bold">
-            Anime Not Found
-          </p>
+          <p className="text-2xl md:text-3xl lg:text-5xl font-bold">Anime Not Found</p>
 
           <p className="text-Absolute-White text-center">
             Sorry, the page you are looking for could not be found.
@@ -60,16 +58,16 @@ const Page = async ({ params: { id } }) => {
           </a>
         </div>
       </section>
-    );
+    )
   }
 
   //get recommendations
   let suggestion = await getNestedAnimeResponse(
     `anime/${id}/recommendations`,
-    "entry"
+    "entry",
   ).then((data) => {
-    return { data: data?.slice(0, 15) };
-  });
+    return { data: data?.slice(0, 15) }
+  })
 
   return (
     <main className="px-5 pb-2.5 md:pb-12">
@@ -120,37 +118,35 @@ const Page = async ({ params: { id } }) => {
                           )}
                         </div>
 
-                        {anime.data?.type != "Music" &&
-                          anime.data?.trailer.url && (
-                            <Link
-                              target="_blank"
-                              href={anime.data?.trailer.url}
-                              rel="noopener noreferrer"
-                              className="flex py-1 px-2 rounded-lg w-fit bg-Red-55 transition-colors hover:bg-opacity-50"
-                            >
-                              <p className="text-sm">Watch Trailer</p>
-                            </Link>
-                          )}
+                        {anime.data?.type != "Music" && anime.data?.trailer.url && (
+                          <Link
+                            target="_blank"
+                            href={anime.data?.trailer.url}
+                            rel="noopener noreferrer"
+                            className="flex py-1 px-2 rounded-lg w-fit bg-Red-55 transition-colors hover:bg-opacity-50"
+                          >
+                            <p className="text-sm">Watch Trailer</p>
+                          </Link>
+                        )}
 
-                        {anime.data?.type == "Music" &&
-                          anime.data?.external && (
-                            <>
-                              {anime.data.external.map((mv) => {
-                                if (mv.name == "YouTube") {
-                                  return (
-                                    <Link
-                                      target="_blank"
-                                      href={mv.url}
-                                      rel="noopener noreferrer"
-                                      className="flex py-1 px-2 rounded-lg w-fit bg-Red-55 transition-colors hover:bg-opacity-50"
-                                    >
-                                      <p className="text-sm">Watch MV</p>
-                                    </Link>
-                                  );
-                                }
-                              })}
-                            </>
-                          )}
+                        {anime.data?.type == "Music" && anime.data?.external && (
+                          <>
+                            {anime.data.external.map((mv) => {
+                              if (mv.name == "YouTube") {
+                                return (
+                                  <Link
+                                    target="_blank"
+                                    href={mv.url}
+                                    rel="noopener noreferrer"
+                                    className="flex py-1 px-2 rounded-lg w-fit bg-Red-55 transition-colors hover:bg-opacity-50"
+                                  >
+                                    <p className="text-sm">Watch MV</p>
+                                  </Link>
+                                )
+                              }
+                            })}
+                          </>
+                        )}
                       </div>
 
                       <section className="w-full text-Absolute-White">
@@ -194,8 +190,7 @@ const Page = async ({ params: { id } }) => {
 
                             <div className="flex flex-wrap gap-1 w-5/6">
                               {anime.data.genres.map((genres, index) => {
-                                const isLast =
-                                  index === anime.data.genres.length - 1;
+                                const isLast = index === anime.data.genres.length - 1
 
                                 return (
                                   <p key={index}>
@@ -203,30 +198,25 @@ const Page = async ({ params: { id } }) => {
 
                                     {!isLast && ","}
                                   </p>
-                                );
+                                )
                               })}
                             </div>
                           </div>
                         )}
 
-                        {anime.data?.score != 0.0 &&
-                          anime.data?.score !== null && (
-                            <div className="w-full flex gap-4">
-                              <p className="w-1/6">Score:</p>
+                        {anime.data?.score != 0.0 && anime.data?.score !== null && (
+                          <div className="w-full flex gap-4">
+                            <p className="w-1/6">Score:</p>
 
-                              <div className="w-5/6 flex items-center text-Red-60">
-                                <Star
-                                  size={14}
-                                  weight="fill"
-                                  className="mr-2"
-                                />
+                            <div className="w-5/6 flex items-center text-Red-60">
+                              <Star size={14} weight="fill" className="mr-2" />
 
-                                <p className="text-Absolute-White">
-                                  {formatScore(anime.data.score)}
-                                </p>
-                              </div>
+                              <p className="text-Absolute-White">
+                                {formatScore(anime.data.score)}
+                              </p>
                             </div>
-                          )}
+                          </div>
+                        )}
 
                         {anime.data?.duration && (
                           <div className="w-full flex gap-4">
@@ -294,7 +284,7 @@ const Page = async ({ params: { id } }) => {
         </section>
       </article>
     </main>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page
