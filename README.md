@@ -1,4 +1,4 @@
-# Vingznime
+# Vingznimel
 
 Vingznime is a catalog website for anime fans, allowing users to keep track of their favorite series.
 
