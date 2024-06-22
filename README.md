@@ -55,3 +55,15 @@ To run this project, you will need to add the following environment variables to
 ```bash
   npm run dev
 ```
+
+## Demo
+
+You can see a demo of this project at [https://vingznime.vercel.app/](https://vingznime.vercel.app/).
+
+## Feedback
+
+If you have any feedback, please reach out to us at [subqitajul7@gmail.com](mailto:subqitajul7@gmail.com)
+
+## Authors
+
+- [Tajul Subqi](https://github.com/tajulsubqi)
