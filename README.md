@@ -60,6 +60,36 @@ To run this project, you will need to add the following environment variables to
 
 You can see a demo of this project at [https://vingznime.vercel.app/](https://vingznime.vercel.app/).
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="./public/screenshots/desk-1.png" alt="App Screenshot" width="100%"></td>
+   <td><img src="./public/screenshots/desk-2.png" alt="App Screenshot" width="100%"></td>
+  </tr>
+  <tr>
+    <td><img src="./public/screenshots/desk-3.png" alt="App Screenshot" width="100%"></td>
+   <td><img src="./public/screenshots/desk-4.png" alt="App Screenshot" width="100%"></td>
+  </tr>
+  <tr>
+    <td><img src="./public/screenshots/desk-5.png" alt="App Screenshot" width="100%"></td>
+  </tr>
+
+  <tr>
+   <td><img src="./public/screenshots/mobile-1.png" alt="App Screenshot" width="70%"></td>
+    <td><img src="./public/screenshots/mobile-2.png" alt="App Screenshot" width="70%"></td>
+  </tr>
+  <tr>
+   <td><img src="./public/screenshots/mobile-3.png" alt="App Screenshot" width="70%"></td>
+    <td><img src="./public/screenshots/mobile-4.png" alt="App Screenshot" width="70%"></td>
+  </tr>
+  <tr>
+   <td><img src="./public/screenshots/mobile-5.png" alt="App Screenshot" width="70%"></td>
+    <td><img src="./public/screenshots/mobile-6.png" alt="App Screenshot" width="70%"></td>
+  </tr>
+
+</table>
+
 ## Feedback
 
 If you have any feedback, please reach out to us at [subqitajul7@gmail.com](mailto:subqitajul7@gmail.com)
