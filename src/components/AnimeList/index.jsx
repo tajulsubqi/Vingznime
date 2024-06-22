@@ -1,8 +1,8 @@
-import { Star } from "@phosphor-icons/react/dist/ssr";
-import Image from "next/image";
-import Link from "next/link";
+import { Star } from "@phosphor-icons/react/dist/ssr"
+import Image from "next/image"
+import Link from "next/link"
 
-import { formatScore, formatDate } from "@/src/libs/utils";
+import { formatScore, formatDate } from "@/src/libs/utils"
 
 const AnimeList = ({ api, horizontal, className, score, type }) => {
   const cardVertical = (
@@ -18,8 +18,8 @@ const AnimeList = ({ api, horizontal, className, score, type }) => {
               <Image
                 unoptimized
                 priority
-                src={anime.images.webp.image_url}
-                alt={anime.images.jpg.image_url}
+                src={anime.images.webp.large_image_url}
+                alt={anime.images.jpg.large_image_url}
                 width={256}
                 height={256}
                 className="object-cover object-center rounded-lg aspect-[3/4]"
@@ -48,10 +48,10 @@ const AnimeList = ({ api, horizontal, className, score, type }) => {
               </p>
             </div>
           </Link>
-        );
+        )
       })}
     </div>
-  );
+  )
 
   const cardHorizontal = (
     <div className={`h-max w-full shrink-0 flex flex-col gap-3 ${className}`}>
@@ -88,16 +88,14 @@ const AnimeList = ({ api, horizontal, className, score, type }) => {
                 {anime.aired && <p>{formatDate(anime.aired.from, "year")}</p>}
               </div>
 
-              <p className="font-medium md:text-lg line-clamp-1">
-                {anime.title}
-              </p>
+              <p className="font-medium md:text-lg line-clamp-1">{anime.title}</p>
             </section>
           </Link>
-        );
+        )
       })}
     </div>
-  );
-  return <>{horizontal ? cardHorizontal : cardVertical}</>;
-};
+  )
+  return <>{horizontal ? cardHorizontal : cardVertical}</>
+}
 
-export default AnimeList;
+export default AnimeList
