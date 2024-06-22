@@ -27,12 +27,9 @@ export const {
   },
   callbacks: {
     async signIn({ user, account }) {
-      // Allow OAuth without email verification
       if (account?.provider !== "credentials") return true
 
       const existingUser = await getUserById(user.id)
-
-      // Prevent sign in without email verification
       if (!existingUser?.emailVerified) return false
 
       if (existingUser.isTwoFactorEnabled) {
@@ -44,7 +41,6 @@ export const {
           return false
         }
 
-        // Delete two factor confirmation for next sign in
         await db.twoFactorConfirmation.delete({
           where: { id: twoFactorConfirmation.id },
         })
@@ -75,13 +71,10 @@ export const {
       if (!token.sub) return token
 
       const existingUser = await getUserById(token.sub)
-
       if (!existingUser) return token
 
       const existingAccount = await getAccountByUserId(existingUser.id)
-
       token.isOAuth = !!existingAccount
-
       token.name = existingUser.name
       token.email = existingUser.email
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled
@@ -94,3 +87,5 @@ export const {
   session: { strategy: "jwt" },
   ...authConfig,
 })
+
+

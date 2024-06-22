@@ -1,11 +1,11 @@
-import type { NextAuthConfig } from "next-auth";
-import Credentials from "next-auth/providers/credentials";
-import brcypt from "bcryptjs";
-import Github from "next-auth/providers/github";
-import Google from "next-auth/providers/google";
+import type { NextAuthConfig } from "next-auth"
+import Credentials from "next-auth/providers/credentials"
+import brcypt from "bcryptjs"
+import Github from "next-auth/providers/github"
+import Google from "next-auth/providers/google"
 
-import { LoginSchema } from "@/src/schemas";
-import { getUserByEmail } from "@/data/user";
+import { LoginSchema } from "@/src/schemas"
+import { getUserByEmail } from "@/data/user"
 
 export default {
   providers: [
@@ -21,21 +21,21 @@ export default {
 
     Credentials({
       async authorize(credentials) {
-        const validatedFields = await LoginSchema.validate(credentials);
+        const validatedFields = await LoginSchema.validate(credentials)
 
         if (validatedFields) {
-          const { email, password } = validatedFields;
+          const { email, password } = validatedFields
 
-          const user = await getUserByEmail(email);
-          if (!user || !user.password) return null;
+          const user = await getUserByEmail(email)
+          if (!user || !user.password) return null
 
-          const passwordMatch = await brcypt.compare(password, user.password);
+          const passwordMatch = await brcypt.compare(password, user.password)
 
-          if (passwordMatch) return user;
+          if (passwordMatch) return user
         }
 
-        return null;
+        return null
       },
     }),
   ],
-} satisfies NextAuthConfig;
+} satisfies NextAuthConfig
