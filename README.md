@@ -26,8 +26,6 @@ To run this project, you will need to add the following environment variables to
 
 `DATABASE_URL=`
 
-`DIRECT_URL=`
-
 `RESEND_API_KEY=`
 
 ## Run Locally

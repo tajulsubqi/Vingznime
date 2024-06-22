@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { Heading } from "@/src/components/auth/heading";
-import { Social } from "@/src/components/auth/social";
-import Link from "next/link";
+import { Heading } from "@/src/components/auth/heading"
+import { Social } from "@/src/components/auth/social"
+import Link from "next/link"
 
 export const CardWrapper = ({
   children,
@@ -51,5 +51,5 @@ export const CardWrapper = ({
         </Link>
       )}
     </section>
-  );
-};
+  )
+}
