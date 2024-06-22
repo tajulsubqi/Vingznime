@@ -64,16 +64,18 @@ You can see a demo of this project at [https://vingznime.vercel.app/](https://vi
 
 <table>
   <tr>
-    <td><img src="./public/screenshots/desk-1.png" alt="App Screenshot" width="100%"></td>
+    <td><img src="./public/screenshots/desk-6.png" alt="App Screenshot" width="100%"></td>
+    <td><img src="./public/screenshots/desk-5.png" alt="App Screenshot" width="100%"></td>
+  </tr>
+  <tr>
+    <td><img src="./public/screenshots/desk-4.png" alt="App Screenshot" width="100%"></td>
    <td><img src="./public/screenshots/desk-2.png" alt="App Screenshot" width="100%"></td>
   </tr>
   <tr>
     <td><img src="./public/screenshots/desk-3.png" alt="App Screenshot" width="100%"></td>
-   <td><img src="./public/screenshots/desk-4.png" alt="App Screenshot" width="100%"></td>
+   <td><img src="./public/screenshots/desk-1.png" alt="App Screenshot" width="100%"></td>
   </tr>
-  <tr>
-    <td><img src="./public/screenshots/desk-5.png" alt="App Screenshot" width="100%"></td>
-  </tr>
+
 
   <tr>
    <td><img src="./public/screenshots/mobile-1.png" alt="App Screenshot" width="70%"></td>
